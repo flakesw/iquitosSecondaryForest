@@ -1,18 +1,17 @@
-##### For collaborative projects--figure out what machine we're on so that we can automatically set the working directory ####
-jacobsocolar <- length(grep('jacobsocolar', Sys.info())) > 0
-jacob <- length(grep('jacob', Sys.info())) > 0
-
-if(jacobsocolar){
-  basepath <- "/Users/jacobsocolar/Dropbox/Work/Iquitos/Trees/secondary_forests"
-}else if(jacob){
-  basepath <- "/Users/jacob/Dropbox/Work/Iquitos/Trees/secondary_forests"
-}# else if(){basepath <- }
+##### For collaborative projects--figure out what machine we're on and automatically set the working directory ####
+socolar.desktop <- file.exists('/Users/jacobsocolar/Dropbox/Work/Code/machine_identifier_n5L8paM.txt')
+socolar.laptop <- file.exists('/Users/jacob/Dropbox/Work/Code/machine_identifier_n5L8paM.txt')
+if(socolar.desktop){
+  dir.path <- "/Users/JacobSocolar/Dropbox/Work/Iquitos/Trees/secondary_forests"
+}else if(socolar.laptop){
+  dir.path <- "/Users/JacobSocolar/Dropbox/Work/Iquitos/Trees/secondary_forests"
+}# else if(){dir.path <- }
 # Edit the above for whatever computer(s) you use.  Just make absolutely sure that the if condition is something that definitely
 # wouldn't possibly evaluate as true on anybody else's system, and that none of the preceding conditions could possibly evaluate
 # to TRUE on your system!  (This isn't just about making sure that we get the right working directories; in some cases we might
-# conceivably invoke system commands for file management that depend on the basepath.)
-
-setwd(basepath)
+# conceivably invoke system commands for file management that depend on dir.path.)
+setwd(dir.path)
+############################
 
 ##### Data download and cleanup #####
 # Get Valderrama tree data from Socolar et al
@@ -31,7 +30,7 @@ unzip('Coelho_data/Coelho_de_Souza.zip', exdir = 'Coelho_data')
 # will evaluate to 'true' on my computer and trigger some unwanted system command.
 
 if(jacobsocolar | jacob){
-  system2('trash', c('-rf', paste0(basepath, '/Coelho_data/__MACOSX')))
+  system2('trash', c('-rf', paste0(dir.path, '/Coelho_data/__MACOSX')))
 }# else if(){}
 
 
