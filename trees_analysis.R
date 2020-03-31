@@ -8,9 +8,9 @@ if(jacobsocolar){
   basepath <- "/Users/jacob/Dropbox/Work/Iquitos/Trees/secondary_forests"
 }# else if(){basepath <- }
 # Edit the above for whatever computer(s) you use.  Just make absolutely sure that the if condition is something that definitely
-# wouldn't possible evaluate as true on anybody else's system, and that none of the preceding condition could possibly evaluate
-# to TRUE on your system!  (This isn't just about making sure that we get the right wd; below there's even a line that invokes a 
-# system command that depends on basepath.)
+# wouldn't possibly evaluate as true on anybody else's system, and that none of the preceding conditions could possibly evaluate
+# to TRUE on your system!  (This isn't just about making sure that we get the right working directories; in some cases we might
+# conceivably invoke system commands for file management that depend on the basepath.)
 
 setwd(basepath)
 
